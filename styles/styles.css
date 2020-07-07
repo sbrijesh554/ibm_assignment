@@ -1,0 +1,96 @@
+.hide{
+    display: none !important;
+}
+.list-height{
+    margin-top: 8px;
+    height: 200px;
+    position: relative;
+}
+.error-text{
+    color: red;
+}
+.highlight-item{
+    background-color: black;
+    color: white;
+}
+.list{
+    list-style: none;
+    padding: 10px 0px 6px 14px;
+}
+.arrow {
+    box-sizing: border-box;
+    height: 15px;
+    width: 15px;
+    border-style: solid;
+    border-color: black;
+    border-width: 0px 3px 3px 0px;
+    transform: rotate(45deg);
+    transition: border-width 150ms ease-in-out;
+    display: inline-block;
+    margin: 0px 0px 0px 5px;
+    position: absolute;
+    top: 8px;
+    right: 10px;
+  }
+  
+  .arrow:hover {
+      cursor: pointer;
+    border-bottom-width: 4px;
+    border-right-width: 4px;
+  }
+
+  .dropdown-container{
+    border: 1px solid black;
+    width: 300px;
+  }
+  .btn-section{
+    border: 1px solid black;
+    height: 35px;
+    position: relative;
+  }
+  .btn-label{
+    position: absolute;
+    top: 8px;
+    left: 18px;
+  }
+
+  input[type='text'] {
+    padding-left: 25px;
+    position: relative;
+}
+  .search-icon{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 6px;
+    left: 12px;
+    z-index: 99;
+  }
+  .text-box{
+    width: 83%;
+    height: 25px;
+    position: absolute;
+    left: 10px;
+    border-radius: 8px;
+  }
+  .list-parent{
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 34px;
+    width: 100%;
+  }
+  .show-all{
+    position: absolute;
+    width: fit-content;
+    right: 0px;
+    cursor: pointer;
+  }
+  .add-btn{
+    margin: 0px 0px 2px 125px;
+    cursor: pointer;
+  }
+  .expand-height{
+    height: 245px;
+    overflow: auto;
+  }
