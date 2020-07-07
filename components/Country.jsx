@@ -12,8 +12,10 @@ class Country extends React.PureComponent{
             priviledge: true,
             errorText: null,
             selectedCountry: '',
-            newCountryAdded: false
+            newCountryAdded: false,
+            displayCountry: null
         }
+        this.debounce = false;
     }
 
     componentDidMount(){
@@ -32,14 +34,15 @@ class Country extends React.PureComponent{
 
     setSelectedCountry = (selectedCountry) => {
         this.setState({
-            selectedCountry
+            selectedCountry,
+            displayCountry: selectedCountry
         })
     }
 
     filterCountryList = (searchCountry) => {
         if(!this.debounce){
            this.debounce = setTimeout(()=>{
-                this.debounce = null;
+                this.debounce = false;
                 const cacheList = JSON.parse(JSON.stringify(this.state.cacheList));
                 const {countryList} = this.state;
                 if(searchCountry){
@@ -66,11 +69,12 @@ class Country extends React.PureComponent{
                     this.setState({
                         countryList: cacheList,
                         newCountryAdded: false,
-                        selectedCountry: ''
+                        selectedCountry: '',
+                        displayCountry: null
                     });
                 }
                 
-            });
+            },10);
         }
     }
 
@@ -80,15 +84,16 @@ class Country extends React.PureComponent{
         this.setState({
             countryList: cacheList,
             newCountryAdded: false,
-            selectedCountry: country
+            selectedCountry: country,
+            displayCountry: country
         })
     }
     render(){
-        const {countryList, priviledge, errorText, selectedCountry, newCountryAdded} = this.state;
+        const {countryList, priviledge, errorText, selectedCountry, newCountryAdded, displayCountry} = this.state;
         return (
             <React.Fragment>
                 <div>
-                     { selectedCountry ?  <span>Selected Country is <b>{selectedCountry}</b></span>:''}
+                     { displayCountry ?  <span>Selected Country is <b>{displayCountry}</b></span>:''}
                 </div>
                 <div>
                     {errorText !== null ? <span className ="error-text">{errorText}</span>: ''}
